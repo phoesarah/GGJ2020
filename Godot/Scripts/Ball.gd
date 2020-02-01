@@ -14,6 +14,10 @@ func body_entered(body):
 	if glove_live==false and body.name!="Glove":
 		glove_live = 1
 		return
+
 	if (body is PropP):
 		print("Hit propp")
 		emit_signal("hit_prop", body)
+	
+	if body.name=="Glove":
+		get_tree().remove_child(self)
