@@ -19,5 +19,6 @@ func body_entered(body):
 		print("Hit propp")
 		emit_signal("hit_prop", body)
 	
-	if body.name=="Glove":
-		get_tree().remove_child(self)
+	if body.name=="Glove" and glove_live == true:
+		print("Caught ball")
+		get_parent().remove_child(self)
