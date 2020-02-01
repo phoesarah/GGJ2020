@@ -6,7 +6,7 @@
 radius = 3.0
 height = 5.0
 
-[node name="KinematicBody" type="KinematicBody"]
+[node name="Player" type="KinematicBody"]
 script = ExtResource( 1 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
@@ -17,6 +17,10 @@ shape = SubResource( 1 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.61741, 0 )
 
 [node name="Camera" type="Camera" parent="CameraHelper"]
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 0, 0, 0 )
+
+[node name="RayCast" type="RayCast" parent="CameraHelper/Camera"]
+cast_to = Vector3( 0, 0, -100 )
 
 [node name="Debug" type="Label" parent="."]
 margin_right = 40.0
