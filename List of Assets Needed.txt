@@ -1,0 +1,17 @@
+Assets:
+Boy  --- dl from internet
+Couch  --build
+Chair ---build
+Table ---build
+Vase ----build
+plants  ----- build
+curio cabinet with plates  ---
+tv
+speakers
+exercise equipment
+
+Animations:
+1."I'm Open"
+2.Duck 
+3.Crawl away
+4.Throwing animation 
