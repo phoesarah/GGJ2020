@@ -10,4 +10,4 @@ func _ready():
 func body_entered(body):
 	if body.get_type() == PropP:
 		pass
-		#emit_signal("hit_prop"(body))
+		emit_signal("hit_prop", body)
