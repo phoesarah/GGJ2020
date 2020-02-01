@@ -8,9 +8,14 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "RigidBody",
+"class": "PropP",
+"language": "GDScript",
+"path": "res://Scripts/Prop.gd"
+} ]
 _global_script_class_icons={
-
+"PropP": ""
 }
 
 [application]
