@@ -8,9 +8,14 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "RigidBody",
+"class": "PropP",
+"language": "GDScript",
+"path": "res://Scripts/Prop.gd"
+} ]
 _global_script_class_icons={
-
+"PropP": ""
 }
 
 [application]
@@ -58,5 +63,6 @@ interact={
 
 [rendering]
 
+quality/driver/driver_name="GLES2"
 quality/driver/fallback_to_gles2=true
 environment/default_environment="res://default_env.tres"
