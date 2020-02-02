@@ -1,13 +1,13 @@
 extends RigidBody
 class_name PropP
 
-var start_transform
+var start_transform = Transform()
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	start_transform=self.get_global_transform()
-	call_deferred("self.connect()", "sleeping_state_changed", get_node("../Player"), "prop_disturbed")
+	#call_deferred("self.connect()", "sleeping_state_changed", get_node("../Player"), "prop_disturbed")
 	#self.connect("sleeping_state_changed", get_node("../Payer"), "prop_disturbed")
 	#self.connect("sleeping_state_changed", get_parent(), "prop_disturbed", [self])
 	self.connect("body_entered", self, "body_entered")
@@ -22,10 +22,9 @@ func reset_transform():
 #	pass
 
 func body_entered(body):
-	#if body.name == "Ball":
-	self.contact_monitor=false
+	set_deferred("self.contact_monitor", false)
 	self.contacts_reported=0
-	get_parent().hit_props.append(self)
+	get_parent().prop_disturbed(self)
 
 func lock_axes(flag:bool):
 	axis_lock_linear_x=flag

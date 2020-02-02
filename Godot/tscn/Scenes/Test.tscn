@@ -41,16 +41,17 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.35697, 4.10906, 14.5059 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.3638, 4.10906, 14.5059 )
 
 [node name="Box12" parent="PropMaster" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.97286, 1.12635, -12.6942 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.97286, 7.53724, -12.6942 )
 
 [node name="Box11" parent="PropMaster" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.7479, 1.12635, -12.6942 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.7479, 7.53724, -12.6942 )
 
 [node name="Box10" parent="PropMaster" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.97286, 1.12635, 9.5139 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.97286, 7.39787, 11.6813 )
+sleeping = false
 
 [node name="Box9" parent="PropMaster" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.7479, 1.12635, 9.5139 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.7479, 7.39787, 9.5139 )
 
 [node name="Box16" parent="PropMaster" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1526, 2.12059, -14.8052 )
@@ -102,7 +103,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.8362, 4.68557, 5.32677 )
 
 [node name="Box32" parent="PropMaster" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.76523, 4.89032, -12.8881 )
-sleeping = false
 
 [node name="Box31" parent="PropMaster" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5747, 4.89032, -10.938 )
