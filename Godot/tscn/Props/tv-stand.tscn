@@ -8,6 +8,9 @@ extents = Vector3( 4.3245, 1.43106, 1.71324 )
 
 [node name="tv stand" type="RigidBody"]
 mass = 0.33
+contacts_reported = 1
+contact_monitor = true
+sleeping = true
 script = ExtResource( 2 )
 
 [node name="TV-stand" parent="." instance=ExtResource( 1 )]

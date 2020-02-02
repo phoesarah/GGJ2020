@@ -11,6 +11,9 @@ extents = Vector3( 1.34873, 1, 3.35656 )
 
 [node name="Recliner" type="RigidBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.27765, 3.61694, 2.59578 )
+contacts_reported = 1
+contact_monitor = true
+sleeping = true
 script = ExtResource( 2 )
 
 [node name="reclinerlight" parent="." instance=ExtResource( 1 )]

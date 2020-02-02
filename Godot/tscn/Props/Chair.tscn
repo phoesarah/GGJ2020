@@ -11,6 +11,9 @@ extents = Vector3( 0.290592, 1.83775, 1.67968 )
 
 [node name="Chair" type="RigidBody"]
 mass = 0.54
+contacts_reported = 1
+contact_monitor = true
+sleeping = true
 script = ExtResource( 2 )
 
 [node name="chair" parent="." instance=ExtResource( 1 )]

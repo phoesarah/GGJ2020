@@ -6,7 +6,9 @@
 extents = Vector3( 11.3167, 3.39079, 4.28737 )
 
 [node name="Sofa" type="RigidBody"]
-can_sleep = false
+contacts_reported = 1
+contact_monitor = true
+sleeping = true
 
 [node name="sofa" parent="." instance=ExtResource( 1 )]
 transform = Transform( 0.962327, 0, -0.271894, 0, 1, 0, 0.271894, 0, 0.962327, 0, 0, 0 )

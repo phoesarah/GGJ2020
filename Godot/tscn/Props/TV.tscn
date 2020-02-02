@@ -7,6 +7,9 @@
 extents = Vector3( 6.42274, 3.69189, 0.617153 )
 
 [node name="TV" type="RigidBody"]
+contacts_reported = 1
+contact_monitor = true
+sleeping = true
 script = ExtResource( 2 )
 
 [node name="TV" parent="." instance=ExtResource( 1 )]

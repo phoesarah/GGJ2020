@@ -8,6 +8,7 @@ extents = Vector3( 0.274948, 3.86642, 2.5431 )
 
 [node name="Picture Warhol" type="RigidBody"]
 mass = 0.33
+contacts_reported = 1
 contact_monitor = true
 sleeping = true
 script = ExtResource( 2 )

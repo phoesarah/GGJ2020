@@ -6,6 +6,8 @@
 extents = Vector3( 0.245676, 4.01885, 6.5217 )
 
 [node name="Landscape painting 2" type="RigidBody"]
+contacts_reported = 1
+contact_monitor = true
 sleeping = true
 
 [node name="landscape-painting-2" parent="." instance=ExtResource( 1 )]

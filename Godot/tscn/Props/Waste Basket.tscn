@@ -7,6 +7,9 @@
 extents = Vector3( 1, 1.03786, 1 )
 
 [node name="Waste Basket" type="RigidBody"]
+contacts_reported = 1
+contact_monitor = true
+sleeping = true
 script = ExtResource( 2 )
 
 [node name="waste-basket" parent="." instance=ExtResource( 1 )]
