@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://tscn/Static/Wall.tscn" type="PackedScene" id=1]
 [ext_resource path="res://tscn/Characters/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://tscn/Props/Box.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scripts/PropMaster.gd" type="Script" id=4]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 2, 0.05, 2 )
@@ -12,28 +13,123 @@ extents = Vector3( 20, 0.05, 20 )
 
 [node name="Spatial" type="Spatial"]
 
-[node name="Player" parent="." instance=ExtResource( 2 )]
+[node name="PropMaster" type="Spatial" parent="."]
+script = ExtResource( 4 )
 
-[node name="Box" parent="." instance=ExtResource( 3 )]
+[node name="Box" parent="PropMaster" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.6045, 4.80502, -11.6808 )
-sleeping = true
 
-[node name="Box2" parent="." instance=ExtResource( 3 )]
+[node name="Box2" parent="PropMaster" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.1163, 4.80502, -11.6808 )
-sleeping = true
 
-[node name="Box4" parent="." instance=ExtResource( 3 )]
+[node name="Box4" parent="PropMaster" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.6045, 4.80502, 10.5273 )
-sleeping = true
 
-[node name="Box3" parent="." instance=ExtResource( 3 )]
+[node name="Box3" parent="PropMaster" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.1163, 4.80502, 10.5273 )
-sleeping = true
+
+[node name="Box8" parent="PropMaster" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.35697, 4.10906, -7.70224 )
+
+[node name="Box7" parent="PropMaster" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.3638, 4.10906, -7.70224 )
+
+[node name="Box6" parent="PropMaster" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.35697, 4.10906, 14.5059 )
+
+[node name="Box5" parent="PropMaster" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.3638, 4.10906, 14.5059 )
+
+[node name="Box12" parent="PropMaster" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.97286, 7.53724, -12.6942 )
+
+[node name="Box11" parent="PropMaster" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.7479, 7.53724, -12.6942 )
+
+[node name="Box10" parent="PropMaster" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.97286, 7.39787, 11.6813 )
+sleeping = false
+
+[node name="Box9" parent="PropMaster" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.7479, 7.39787, 9.5139 )
+
+[node name="Box16" parent="PropMaster" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1526, 2.12059, -14.8052 )
+
+[node name="Box15" parent="PropMaster" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5682, 2.12059, -14.8052 )
+
+[node name="Box14" parent="PropMaster" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1526, 2.12059, 7.40295 )
+
+[node name="Box13" parent="PropMaster" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5682, 2.12059, 7.40295 )
+
+[node name="Box20" parent="PropMaster" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.8216, 2.91598, -17.8859 )
+
+[node name="Box19" parent="PropMaster" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.89916, 2.91598, -17.8859 )
+
+[node name="Box18" parent="PropMaster" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.8216, 2.91598, 4.32218 )
+
+[node name="Box17" parent="PropMaster" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.89916, 2.91598, 4.32218 )
+
+[node name="Box24" parent="PropMaster" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.7779, 5.89868, -13.6018 )
+
+[node name="Box23" parent="PropMaster" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.94287, 5.89868, -13.6018 )
+
+[node name="Box22" parent="PropMaster" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.7779, 5.89868, 8.60633 )
+
+[node name="Box21" parent="PropMaster" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.94287, 5.89868, 8.60633 )
+
+[node name="Box28" parent="PropMaster" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.88465, 4.68557, -16.8813 )
+
+[node name="Box27" parent="PropMaster" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.8362, 4.68557, -16.8813 )
+
+[node name="Box26" parent="PropMaster" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.88465, 4.68557, 5.32677 )
+
+[node name="Box25" parent="PropMaster" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.8362, 4.68557, 5.32677 )
+
+[node name="Box32" parent="PropMaster" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.76523, 4.89032, -12.8881 )
+
+[node name="Box31" parent="PropMaster" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5747, 4.89032, -10.938 )
+
+[node name="Box30" parent="PropMaster" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.14608, 4.89032, 11.2701 )
+
+[node name="Box29" parent="PropMaster" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5747, 4.89032, 11.2701 )
+
+[node name="Label" type="Label" parent="PropMaster"]
+margin_left = 447.0
+margin_top = 11.0
+margin_right = 487.0
+margin_bottom = 25.0
+text = "Prop Debug"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
 
 [node name="Room" type="Spatial" parent="."]
 
 [node name="Floor" type="StaticBody" parent="Room"]
 transform = Transform( 10, 0, 0, 0, 7, 0, 0, 0, 10, 0, 0, 0 )
+collision_layer = 3
 
 [node name="CollisionShape" type="CollisionShape" parent="Room/Floor"]
 shape = SubResource( 1 )

@@ -5,6 +5,7 @@ extents = Vector3( 0.5, 7, 20 )
 
 [node name="Wall" type="StaticBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.97665, 0 )
+collision_layer = 3
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 shape = SubResource( 1 )
