@@ -15,3 +15,6 @@ Animations:
 2.Duck 
 3.Crawl away
 4.Throwing animation 
+5 Celebration animation
+6. Defeat Animation
+7 Mom rig? Mom coming home? 
