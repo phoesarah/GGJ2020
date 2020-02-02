@@ -21,6 +21,7 @@ var ray
 var ball
 var hit_props = Array()
 var timer
+var scene_win = load("res://tscn/Scenes/MenuWin.tscn")
 
 var debugtext
 
@@ -94,8 +95,10 @@ func process_input(delta):
 					if hit_props.has(obj):
 						hit_props.erase(obj)
 						obj.reset_transform()
-						if hit_props.size()==0:
-							get_tree().quit()
+						if hit_props.size()==0: #Win
+							scene_win.instance()
+							
+							#get_tree().quit()
 			if can_throw:
 				var ballo=ball.instance()
 				var scene_root = get_tree().root.get_children()[0]

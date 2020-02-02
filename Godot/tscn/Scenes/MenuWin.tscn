@@ -1,0 +1,13 @@
+[gd_scene format=2]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 471.055
+margin_top = 228.589
+margin_right = 630.055
+margin_bottom = 358.589
+text = "You repaired the room before mom got home."
+__meta__ = {
+"_edit_use_anchors_": false
+}

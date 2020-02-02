@@ -21,8 +21,8 @@ func body_entered(body):
 		glove_live = 1
 		return
 
-	if (body is PropP):
-		emit_signal("hit_prop", body)
+#	if (body is PropP):
+#		emit_signal("hit_prop", body)
 	
 	if body.name=="Glove" and glove_live == true:
 		get_parent().remove_child(self)
