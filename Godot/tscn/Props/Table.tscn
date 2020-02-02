@@ -8,6 +8,7 @@
 extents = Vector3( 2.591, 0.152, 4.349 )
 
 [node name="Table" type="RigidBody"]
+mass = 0.38
 contacts_reported = 1
 contact_monitor = true
 sleeping = true

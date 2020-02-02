@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://tscn/Static/Wall2.tscn" type="PackedScene" id=1]
 [ext_resource path="res://tscn/Props/PropMaster.tscn" type="PackedScene" id=2]
@@ -11,9 +11,22 @@
 [ext_resource path="res://tscn/Props/Chair.tscn" type="PackedScene" id=9]
 [ext_resource path="res://tscn/Props/File Cabinent.tscn" type="PackedScene" id=10]
 [ext_resource path="res://tscn/Props/PictureFrame-Warhol.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Assets/Models/window.glb" type="PackedScene" id=12]
+[ext_resource path="res://tscn/Static/Sofa.tscn" type="PackedScene" id=13]
+[ext_resource path="res://tscn/Props/tv-stand.tscn" type="PackedScene" id=14]
+[ext_resource path="res://tscn/Props/TV.tscn" type="PackedScene" id=15]
+[ext_resource path="res://tscn/Props/Book-green.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Assets/Models/fireplace.gltf" type="PackedScene" id=17]
+[ext_resource path="res://Assets/Models/rug-rectangle.gltf" type="PackedScene" id=18]
+[ext_resource path="res://Assets/Models/rug-circle.gltf" type="PackedScene" id=19]
+[ext_resource path="res://tscn/Props/Landscape painting.tscn" type="PackedScene" id=20]
+[ext_resource path="res://tscn/Props/Landscape painting 2.tscn" type="PackedScene" id=21]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 50, 0.1, 50 )
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 0.427451, 0.2, 0.2, 1 )
 
 [node name="Spatial" type="Spatial"]
 
@@ -21,6 +34,7 @@ extents = Vector3( 50, 0.1, 50 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.73196, 10.4705, -15.431 )
 
 [node name="PropMaster" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00319099, -9.53674e-07, 0.0521469 )
 
 [node name="Table" parent="PropMaster" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -42.4649, 0, -13.3431 )
@@ -28,20 +42,23 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -42.4649, 0, -13.3431 )
 [node name="Table2" parent="PropMaster" instance=ExtResource( 3 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -13.6383, 0, -41.184 )
 
+[node name="Table3" parent="PropMaster" instance=ExtResource( 3 )]
+transform = Transform( -3.23366e-08, 0, -0.739775, 0, 0.363594, 0, 1.2617, 0, -5.51508e-08, 39.4224, -0.158401, -40.5889 )
+
 [node name="Picture Mother" parent="PropMaster" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -45.4374, 8.36932, 12.0085 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -45.4374, 12.7349, 12.0085 )
 
 [node name="Picture Mother2" parent="PropMaster" instance=ExtResource( 6 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 14.3806, 11.4183, -45.0199 )
 
 [node name="Waste Basket" parent="PropMaster" instance=ExtResource( 7 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1.13806, -0.054512 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.82656, 1.13806, 16.4214 )
 
 [node name="Waste Basket2" parent="PropMaster" instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -42.9034, 0, -19.488 )
 
 [node name="Recliner" parent="PropMaster" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 38.0811, 4.02576, -15.0017 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 38.0811, 4.02576, -26.6771 )
 
 [node name="Recliner2" parent="PropMaster" instance=ExtResource( 8 )]
 transform = Transform( -0.999961, 0, 0.00888363, 0, 1, 0, -0.00888363, 0, -0.999961, -38.5533, 4.02576, -5.48059 )
@@ -53,16 +70,85 @@ transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -13.211
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -40.1907, 0.00128913, -12.98 )
 
 [node name="File Cabinent" parent="PropMaster" instance=ExtResource( 10 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.509728, 18.8413 )
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -25.5116, 0.509728, 18.8413 )
 
 [node name="File Cabinent2" parent="PropMaster" instance=ExtResource( 10 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 7.22317, 0.509728, 18.8413 )
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -18.2198, 0.382439, 18.9138 )
 
 [node name="File Cabinent3" parent="PropMaster" instance=ExtResource( 10 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 14.8, 0.509728, 18.8413 )
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -10.4628, 0.509728, 18.8413 )
 
 [node name="Picture Warhol" parent="PropMaster" instance=ExtResource( 11 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -45.168, 13.3019, -26.6659 )
+
+[node name="TV" parent="PropMaster" instance=ExtResource( 15 )]
+transform = Transform( -0.999793, 0, 0.020349, 0, 1, 0, -0.020349, 0, -0.999793, 19.1246, 3.22056, -12.8659 )
+
+[node name="TV stand" parent="PropMaster" instance=ExtResource( 14 )]
+transform = Transform( -0.999793, 0, 0.020349, 0, 1, 0, -0.020349, 0, -0.999793, 19.6931, 0.0910344, -11.8822 )
+
+[node name="Book green" parent="PropMaster" instance=ExtResource( 16 )]
+transform = Transform( -0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, -0.258819, -12.1017, 6.2362, -42.1791 )
+
+[node name="Book green3" parent="PropMaster" instance=ExtResource( 16 )]
+transform = Transform( -0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, -0.258819, -12.6212, 6.2362, -42.1791 )
+
+[node name="Book green4" parent="PropMaster" instance=ExtResource( 16 )]
+transform = Transform( -0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, -0.258819, -13.1133, 6.2362, -42.1791 )
+
+[node name="Book green5" parent="PropMaster" instance=ExtResource( 16 )]
+transform = Transform( -0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, -0.258819, -13.5925, 6.2362, -42.1791 )
+
+[node name="Book green6" parent="PropMaster" instance=ExtResource( 16 )]
+transform = Transform( -0.0251799, -0.9995, 0.0191158, -0.000702622, 0.0191396, 0.999817, -0.999683, 0.0251619, -0.00118423, -14.7329, 6.37123, -42.1791 )
+
+[node name="Book green2" parent="PropMaster" instance=ExtResource( 16 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11.4398, 6.2362, -42.1791 )
+
+[node name="Book green7" parent="PropMaster" instance=ExtResource( 16 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -43.8238, 6.2362, -10.0026 )
+
+[node name="Book green8" parent="PropMaster" instance=ExtResource( 16 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -43.8238, 6.2362, -10.5535 )
+
+[node name="Book green9" parent="PropMaster" instance=ExtResource( 16 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -43.8238, 6.2362, -11.1517 )
+
+[node name="Book green10" parent="PropMaster" instance=ExtResource( 16 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -43.8238, 6.2362, -11.7401 )
+
+[node name="Book green11" parent="PropMaster" instance=ExtResource( 16 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -43.8238, 6.2362, -12.2988 )
+
+[node name="Book green12" parent="PropMaster" instance=ExtResource( 16 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -43.8238, 6.2362, -12.8729 )
+
+[node name="Book green13" parent="PropMaster" instance=ExtResource( 16 )]
+transform = Transform( -0.831402, 0.555672, -7.26834e-08, -8.74228e-08, 0, 1, 0.555672, 0.831402, 4.85784e-08, -41.2518, 6.29737, -16.6679 )
+
+[node name="Book green14" parent="PropMaster" instance=ExtResource( 16 )]
+transform = Transform( -0.147309, 0.98909, -1.28781e-08, -8.74228e-08, 0, 1, 0.98909, 0.147309, 8.6469e-08, -41.7962, 6.29737, -14.9092 )
+
+[node name="Book green15" parent="PropMaster" instance=ExtResource( 16 )]
+transform = Transform( -0.147309, 0.98909, -1.28781e-08, -8.74228e-08, 0, 1, 0.98909, 0.147309, 8.6469e-08, -41.7962, 6.29737, -13.7261 )
+
+[node name="Book green16" parent="PropMaster" instance=ExtResource( 16 )]
+transform = Transform( -0.147309, 0.98909, -1.28781e-08, -8.74228e-08, 0, 1, 0.98909, 0.147309, 8.6469e-08, -41.7962, 6.29737, -12.5775 )
+
+[node name="Book green17" parent="PropMaster" instance=ExtResource( 16 )]
+transform = Transform( -0.147309, 0.98909, -1.28781e-08, -8.74228e-08, 0, 1, 0.98909, 0.147309, 8.6469e-08, -41.7962, 6.29737, -11.5373 )
+
+[node name="Book green18" parent="PropMaster" instance=ExtResource( 16 )]
+transform = Transform( -0.147309, 0.98909, -1.28781e-08, -8.74228e-08, 0, 1, 0.98909, 0.147309, 8.6469e-08, -41.7962, 6.29737, -10.5167 )
+
+[node name="Book green19" parent="PropMaster" instance=ExtResource( 16 )]
+transform = Transform( -0.147309, 0.98909, -1.28781e-08, -8.74228e-08, 0, 1, 0.98909, 0.147309, 8.6469e-08, -43.1881, 6.29737, -16.1444 )
+
+[node name="Landscape painting" parent="PropMaster" instance=ExtResource( 20 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.112, 13.782, 20.2064 )
+
+[node name="Landscape painting 2" parent="PropMaster" instance=ExtResource( 21 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 45.2227, 13.118, -30.8265 )
 
 [node name="OmniLight" type="OmniLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.03148, 14.7906, 0 )
@@ -86,6 +172,7 @@ shape = SubResource( 1 )
 width = 100.0
 height = 0.1
 depth = 100.0
+material = SubResource( 2 )
 
 [node name="Ceiling" type="StaticBody" parent="Room"]
 transform = Transform( 8.17174, 0, 0, 0, 1.44618, 0, 0, 0, 8.17174, 0, 30.3697, 371.664 )
@@ -101,7 +188,7 @@ transform = Transform( 8.17173, 0, 0, 0, 1.44618, 0, 0, 0, 8.17173, 369.926, 0, 
 transform = Transform( -8.17173, 0, -2.66269e-06, 0, 1.44618, 0, 2.66269e-06, 0, -8.17173, -373.391, -1.37918e-06, 373.639 )
 
 [node name="Wall3" parent="Room" instance=ExtResource( 1 )]
-transform = Transform( -1.33134e-06, 0, 8.17173, 0, 1.44618, 0, -8.17173, 0, -1.33134e-06, 0, 0, 0.68454 )
+transform = Transform( -1.33134e-06, 0, 8.17173, 0, 1.44618, 0, -8.17173, 0, -1.33134e-06, 0, 0, 0.684601 )
 
 [node name="Wall4" parent="Room" instance=ExtResource( 1 )]
 transform = Transform( -1.33134e-06, 0, -8.17173, 0, 1.44618, 0, 8.17173, 0, -1.33134e-06, 0, 0, 538.568 )
@@ -110,7 +197,22 @@ transform = Transform( -1.33134e-06, 0, -8.17173, 0, 1.44618, 0, 8.17173, 0, -1.
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.40921 )
 
 [node name="Door2" parent="Room" instance=ExtResource( 5 )]
-transform = Transform( -4.37114e-08, 0, -0.999999, 0, 1, 0, 0.999999, 0, -4.37114e-08, 366.572, 0, 445.792 )
+transform = Transform( -4.37114e-08, 0, -0.999999, 0, 1, 0, 0.999999, 0, -4.37114e-08, 366.572, 0, 404.151 )
 
 [node name="Door3" parent="Room" instance=ExtResource( 5 )]
 transform = Transform( -0.999999, 0, 8.74227e-08, 0, 1, 0, -8.74227e-08, 0, -0.999999, -304.67, 0, 536.225 )
+
+[node name="window" parent="Room" instance=ExtResource( 12 )]
+transform = Transform( -3.57198e-07, 0, 8.17172, 0, 1.44618, 0, -8.17172, 0, -3.57198e-07, -268.637, 9.55237, 1.57953 )
+
+[node name="fireplace" parent="Room" instance=ExtResource( 17 )]
+transform = Transform( -8.17172, 0, 7.14395e-07, 0, 1.44618, 0, -7.14395e-07, 0, -8.17172, 50.8392, 0.855932, 516.245 )
+
+[node name="Sofa" parent="Room" instance=ExtResource( 13 )]
+transform = Transform( 8.17114, 0, 0.0981221, 0, 1.44618, 0, -0.0981221, 0, 8.17114, 183.173, 0.18156, 40.3246 )
+
+[node name="rug-circle" parent="Room" instance=ExtResource( 19 )]
+transform = Transform( 20.6595, 0, 0, 0, 1.44618, 0, 0, 0, 20.6595, 174.198, -0.193813, 184.555 )
+
+[node name="rug-rectangle" parent="." instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000987291, 0.0463474, -42.5578 )

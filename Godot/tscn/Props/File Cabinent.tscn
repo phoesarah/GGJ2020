@@ -8,6 +8,7 @@ extents = Vector3( 3.67728, 7.41841, 1.67883 )
 
 [node name="File Cabinent" type="RigidBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.480019, 0 )
+mass = 0.43
 script = ExtResource( 2 )
 
 [node name="file-cabinent" parent="." instance=ExtResource( 1 )]

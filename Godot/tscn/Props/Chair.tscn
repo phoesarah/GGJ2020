@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Assets/Models/chair.dae" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/Prop.gd" type="Script" id=2]
@@ -6,7 +6,11 @@
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 2.09206, 2.02484, 1.82706 )
 
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 0.290592, 1.83775, 1.67968 )
+
 [node name="Chair" type="RigidBody"]
+mass = 0.54
 script = ExtResource( 2 )
 
 [node name="chair" parent="." instance=ExtResource( 1 )]
@@ -14,3 +18,7 @@ script = ExtResource( 2 )
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.682314, 1.59747, -0.27691 )
 shape = SubResource( 1 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="."]
+transform = Transform( 0.958093, -0.286458, 0, 0.286458, 0.958093, 0, 0, 0, 1, -2.90295, 5.78955, -0.390395 )
+shape = SubResource( 2 )
