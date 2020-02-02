@@ -8,7 +8,7 @@ func _ready():
 
 
 func _process(delta):
-	text.text = String(int(self.time_left)) + "\n" + String(self.time_left)
+	text.text = "Seconds left: " + String(int(self.time_left))# + "\n" + String(self.time_left)
 
 
 func lose():

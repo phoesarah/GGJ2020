@@ -46,6 +46,10 @@ visible = false
 transform = Transform( 0.598891, -0.613782, -0.514393, 0.599738, 0.769412, -0.219819, 0.530701, -0.176853, 0.828903, 0.604704, 0.0876207, -0.121889 )
 
 [node name="Debug" type="Label" parent="."]
+anchor_left = 0.02
+anchor_top = 0.02
+anchor_right = 0.02
+anchor_bottom = 0.02
 margin_right = 40.0
 margin_bottom = 14.0
 text = "Debug"
@@ -60,6 +64,8 @@ one_shot = true
 script = ExtResource( 2 )
 
 [node name="TextTimer" type="RichTextLabel" parent="Timer"]
+anchor_top = 0.02
+anchor_bottom = 0.02
 margin_left = 286.0
 margin_top = 2.0
 margin_right = 478.0
@@ -84,3 +90,24 @@ scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="OneShot" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+autostart = true
+
+[node name="Aim" type="Label" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -2.00269
+margin_top = -9.51306
+margin_right = 37.9973
+margin_bottom = 4.48694
+text = "."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="timeout" from="OneShot" to="." method="clear_hit_props"]

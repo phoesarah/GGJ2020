@@ -23,6 +23,8 @@ var hit_props = Array()
 var timer
 var warning
 var scene_win = load("res://tscn/Scenes/MenuWin.tscn")
+var nd_shot: bool = 0
+var aim
 
 signal throw
 var debugtext
@@ -35,6 +37,7 @@ func _ready():
 	ray = get_node("CameraHelper/Camera/RayCast")
 	timer = get_node("Timer")
 	warning = get_node("Warning")
+	aim = get_node("Aim")
 	ball = preload("res://tscn/Props/Ball.tscn")
 	self.connect("throw", get_parent().get_node("Boy"), "throw")
 	if invert_mouse_y:
@@ -140,8 +143,9 @@ func process_movement(delta):
 	#debugtext += String(vel)
 	#debugtext += "\n" + String(camera_helper.get_global_transform().basis.z) + "\n"
 	#debugtext += "\n" + String(Vector3(camera_helper.get_transform().basis.x.x,camera_helper.get_transform().basis.y.y,camera_helper.get_transform().basis.z.z)) + "\n"
-	debugtext += "\n hit_props size " + String(hit_props.size()) + "\n"
-	get_node("Debug").text= debugtext + "\n" + "FPS: " + str(Engine.get_frames_per_second())
+	debugtext += "FPS: " + str(Engine.get_frames_per_second())
+	debugtext += "\n Items that need to be picked up: " + String(hit_props.size()) + "\n"
+	get_node("Debug").text= debugtext
 
 func prop_disturbed(prop):
 	print("Prop disturbed")
@@ -157,3 +161,12 @@ func caught():
 	get_node("CameraHelper/Glove").visible=0
 	warning.visible=1
 	timer.start(hit_props.size()*time_per_prop)
+	get_node("OneShot").start(3)
+
+func clear_hit_props():
+	if !nd_shot:
+		hit_props.clear()
+		nd_shot=1
+	else:
+		warning.visible=0
+		aim.visible=1

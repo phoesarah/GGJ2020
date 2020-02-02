@@ -6,6 +6,7 @@
 script = ExtResource( 3 )
 
 [node name="Label" type="Label" parent="."]
+visible = false
 margin_left = 447.0
 margin_top = 11.0
 margin_right = 487.0

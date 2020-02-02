@@ -13,9 +13,15 @@ _global_script_classes=[ {
 "class": "PropP",
 "language": "GDScript",
 "path": "res://Scripts/Prop.gd"
+}, {
+"base": "RigidBody",
+"class": "PropPBak",
+"language": "GDScript",
+"path": "res://Scripts/PropBak.gd"
 } ]
 _global_script_class_icons={
-"PropP": ""
+"PropP": "",
+"PropPBak": ""
 }
 
 [application]
