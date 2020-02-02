@@ -23,6 +23,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.61741, 0 )
 
 [node name="Camera" type="Camera" parent="CameraHelper"]
 transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 0, 0, 0 )
+far = 145.0
 
 [node name="RayCast" type="RayCast" parent="CameraHelper/Camera"]
 cast_to = Vector3( 0, 0, -100 )

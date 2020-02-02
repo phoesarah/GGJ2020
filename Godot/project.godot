@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="GGJ2020"
-run/main_scene="res://tscn/Scenes/Test.tscn"
+run/main_scene="res://tscn/Scenes/Main.tscn"
 config/icon="res://icon.png"
 
 [input]

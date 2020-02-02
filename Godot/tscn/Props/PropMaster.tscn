@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/PropMaster.gd" type="Script" id=3]
+
+[node name="PropMaster" type="Spatial"]
+script = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 447.0
+margin_top = 11.0
+margin_right = 487.0
+margin_bottom = 25.0
+text = "Prop Debug"
+__meta__ = {
+"_edit_use_anchors_": false
+}

@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://tscn/Static/Wall.tscn" type="PackedScene" id=1]
 [ext_resource path="res://tscn/Characters/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://tscn/Props/Box.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scripts/PropMaster.gd" type="Script" id=4]
+[ext_resource path="res://Assets/Models/door.dae" type="PackedScene" id=5]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 2, 0.05, 2 )
@@ -15,6 +16,16 @@ extents = Vector3( 20, 0.05, 20 )
 
 [node name="PropMaster" type="Spatial" parent="."]
 script = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="PropMaster"]
+margin_left = 447.0
+margin_top = 11.0
+margin_right = 487.0
+margin_bottom = 25.0
+text = "Prop Debug"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Box" parent="PropMaster" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.6045, 4.80502, -11.6808 )
@@ -48,7 +59,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.7479, 7.53724, -12.6942 )
 
 [node name="Box10" parent="PropMaster" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.97286, 7.39787, 11.6813 )
-sleeping = false
 
 [node name="Box9" parent="PropMaster" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.7479, 7.39787, 9.5139 )
@@ -113,16 +123,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.14608, 4.89032, 11.2701 )
 [node name="Box29" parent="PropMaster" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5747, 4.89032, 11.2701 )
 
-[node name="Label" type="Label" parent="PropMaster"]
-margin_left = 447.0
-margin_top = 11.0
-margin_right = 487.0
-margin_bottom = 25.0
-text = "Prop Debug"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Player" parent="." instance=ExtResource( 2 )]
 
 [node name="Room" type="Spatial" parent="."]
@@ -156,3 +156,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Room/Ceiling"]
 shape = SubResource( 2 )
+
+[node name="door" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.55, 0, -1.054 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.55, 0, -1.054 )
