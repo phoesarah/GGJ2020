@@ -18,6 +18,7 @@ const DEACCEL= 16
 const MAX_SLOPE_ANGLE = 40
 var ray
 var ball
+var hit_props = Array()
 
 var debugtext
 
@@ -99,7 +100,7 @@ func process_input(delta):
 		if ray.is_colliding():
 			var obj = ray.get_collider()
 			debugtext += " Ray cast to: " + String(obj.name) + "\n"
-			print(obj.name)
+			#print(obj.name)
 
 func process_movement(delta):
 	dir.y = 0
@@ -126,4 +127,9 @@ func process_movement(delta):
 	debugtext += String(vel)
 	debugtext += "\n" + String(camera_helper.get_global_transform().basis.z) + "\n"
 	#debugtext += "\n" + String(Vector3(camera_helper.get_transform().basis.x.x,camera_helper.get_transform().basis.y.y,camera_helper.get_transform().basis.z.z)) + "\n"
+	debugtext += "\n" + String(hit_props.size()) + "\n"
 	get_node("Debug").text= debugtext + "\n" + "FPS: " + str(Engine.get_frames_per_second())
+
+func ball_hit(prop):
+	if !hit_props.has(prop):
+		hit_props.append(prop)
