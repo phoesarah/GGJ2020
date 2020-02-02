@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://tscn/Static/Wall2.tscn" type="PackedScene" id=1]
 [ext_resource path="res://tscn/Props/PropMaster.tscn" type="PackedScene" id=2]
@@ -21,6 +21,7 @@
 [ext_resource path="res://Assets/Models/rug-circle.gltf" type="PackedScene" id=19]
 [ext_resource path="res://tscn/Props/Landscape painting.tscn" type="PackedScene" id=20]
 [ext_resource path="res://tscn/Props/Landscape painting 2.tscn" type="PackedScene" id=21]
+[ext_resource path="res://tscn/Characters/Boy.tscn" type="PackedScene" id=22]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 50, 0.1, 50 )
@@ -31,7 +32,10 @@ albedo_color = Color( 0.427451, 0.2, 0.2, 1 )
 [node name="Spatial" type="Spatial"]
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.73196, 10.4705, -15.431 )
+transform = Transform( 0.257166, 0, -0.966367, 0, 1, 0, 0.966367, 0, 0.257166, -7.82346, 10.4705, -2.32138 )
+
+[node name="Boy" parent="." instance=ExtResource( 22 )]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -39.0717, 4.24121, 10.3408 )
 
 [node name="PropMaster" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00319099, -9.53674e-07, 0.0521469 )

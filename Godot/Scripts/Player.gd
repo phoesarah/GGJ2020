@@ -23,7 +23,9 @@ var hit_props = Array()
 var timer
 var scene_win = load("res://tscn/Scenes/MenuWin.tscn")
 
+signal throw
 var debugtext
+
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -32,6 +34,7 @@ func _ready():
 	ray = get_node("CameraHelper/Camera/RayCast")
 	timer = get_node("Timer")
 	ball = preload("res://tscn/Props/Ball.tscn")
+	self.connect("throw", get_parent().get_node("Boy"), "throw")
 	if invert_mouse_y:
 		invert_y=-1
 
@@ -100,6 +103,7 @@ func process_input(delta):
 							
 							#get_tree().quit()
 			if can_throw:
+				emit_signal("throw")
 				var ballo=ball.instance()
 				var scene_root = get_tree().root.get_children()[0]
 				scene_root.add_child(ballo)
@@ -154,4 +158,5 @@ func prop_disturbed(prop):
 func caught():
 	print("Caught ball")
 	has_ball=1
+	get_node("CameraHelper/Glove").visible=0
 	timer.start(hit_props.size()*time_per_prop)

@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://tscn/Static/Wall.tscn" type="PackedScene" id=1]
 [ext_resource path="res://tscn/Characters/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://tscn/Props/Box.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scripts/PropMaster.gd" type="Script" id=4]
 [ext_resource path="res://Assets/Models/door.dae" type="PackedScene" id=5]
+[ext_resource path="res://tscn/Characters/Boy.tscn" type="PackedScene" id=6]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 2, 0.05, 2 )
@@ -162,3 +163,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.55, 0, -1.054 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.55, 0, -1.054 )
+
+[node name="Boy" parent="." instance=ExtResource( 6 )]
+transform = Transform( -0.997172, 0, -0.0751526, 0, 1, 0, 0.0751526, 0, -0.997172, 3.68848, 4.35352, 12.8731 )
