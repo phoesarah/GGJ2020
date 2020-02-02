@@ -21,6 +21,7 @@ var ray
 var ball
 var hit_props = Array()
 var timer
+var warning
 var scene_win = load("res://tscn/Scenes/MenuWin.tscn")
 
 signal throw
@@ -33,6 +34,7 @@ func _ready():
 	camera_helper = get_node("CameraHelper")
 	ray = get_node("CameraHelper/Camera/RayCast")
 	timer = get_node("Timer")
+	warning = get_node("Warning")
 	ball = preload("res://tscn/Props/Ball.tscn")
 	self.connect("throw", get_parent().get_node("Boy"), "throw")
 	if invert_mouse_y:
@@ -99,9 +101,7 @@ func process_input(delta):
 						hit_props.erase(obj)
 						obj.reset_transform()
 						if hit_props.size()==0: #Win
-							scene_win.instance()
-							
-							#get_tree().quit()
+							get_tree().change_scene("res://tscn/Scenes/GameOverScreen.tscn")
 			if can_throw:
 				emit_signal("throw")
 				var ballo=ball.instance()
@@ -137,7 +137,7 @@ func process_movement(delta):
 	vel.z = hvel.z
 	vel = move_and_slide(vel, Vector3(0, 1, 0), 0.05, 4, deg2rad(MAX_SLOPE_ANGLE))
 
-	debugtext += String(vel)
+	#debugtext += String(vel)
 	#debugtext += "\n" + String(camera_helper.get_global_transform().basis.z) + "\n"
 	#debugtext += "\n" + String(Vector3(camera_helper.get_transform().basis.x.x,camera_helper.get_transform().basis.y.y,camera_helper.get_transform().basis.z.z)) + "\n"
 	debugtext += "\n hit_props size " + String(hit_props.size()) + "\n"
@@ -150,13 +150,10 @@ func prop_disturbed(prop):
 		if !hit_props.has(prop):
 			hit_props.append(prop)
 
-#func ball_hit(prop):
-#	pass
-#	if !hit_props.has(prop):
-#		hit_props.append(prop)
 
 func caught():
 	print("Caught ball")
 	has_ball=1
 	get_node("CameraHelper/Glove").visible=0
+	warning.visible=1
 	timer.start(hit_props.size()*time_per_prop)
