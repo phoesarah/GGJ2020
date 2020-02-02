@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://tscn/Static/Wall2.tscn" type="PackedScene" id=1]
 [ext_resource path="res://tscn/Props/PropMaster.tscn" type="PackedScene" id=2]
@@ -6,6 +6,11 @@
 [ext_resource path="res://tscn/Characters/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://tscn/Static/Door.tscn" type="PackedScene" id=5]
 [ext_resource path="res://tscn/Props/PictureFrameMother.tscn" type="PackedScene" id=6]
+[ext_resource path="res://tscn/Props/Waste Basket.tscn" type="PackedScene" id=7]
+[ext_resource path="res://tscn/Props/Recliner.tscn" type="PackedScene" id=8]
+[ext_resource path="res://tscn/Props/Chair.tscn" type="PackedScene" id=9]
+[ext_resource path="res://tscn/Props/File Cabinent.tscn" type="PackedScene" id=10]
+[ext_resource path="res://tscn/Props/PictureFrame-Warhol.tscn" type="PackedScene" id=11]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 50, 0.1, 50 )
@@ -13,17 +18,54 @@ extents = Vector3( 50, 0.1, 50 )
 [node name="Spatial" type="Spatial"]
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.4705, -19.9272 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.73196, 10.4705, -15.431 )
 
 [node name="PropMaster" parent="." instance=ExtResource( 2 )]
 
 [node name="Table" parent="PropMaster" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -42.4649, 0, -13.3431 )
 
-[node name="RigidBody" parent="PropMaster" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -45.7817, 11.4183, 0 )
+[node name="Table2" parent="PropMaster" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -13.6383, 0, -41.184 )
+
+[node name="Picture Mother" parent="PropMaster" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -45.4374, 8.36932, 12.0085 )
+
+[node name="Picture Mother2" parent="PropMaster" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 14.3806, 11.4183, -45.0199 )
+
+[node name="Waste Basket" parent="PropMaster" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1.13806, -0.054512 )
+
+[node name="Waste Basket2" parent="PropMaster" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -42.9034, 0, -19.488 )
+
+[node name="Recliner" parent="PropMaster" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 38.0811, 4.02576, -15.0017 )
+
+[node name="Recliner2" parent="PropMaster" instance=ExtResource( 8 )]
+transform = Transform( -0.999961, 0, 0.00888363, 0, 1, 0, -0.00888363, 0, -0.999961, -38.5533, 4.02576, -5.48059 )
+
+[node name="Chair" parent="PropMaster" instance=ExtResource( 9 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -13.2116, 0.00128913, -38.3124 )
+
+[node name="Chair2" parent="PropMaster" instance=ExtResource( 9 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -40.1907, 0.00128913, -12.98 )
+
+[node name="File Cabinent" parent="PropMaster" instance=ExtResource( 10 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.509728, 18.8413 )
+
+[node name="File Cabinent2" parent="PropMaster" instance=ExtResource( 10 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 7.22317, 0.509728, 18.8413 )
+
+[node name="File Cabinent3" parent="PropMaster" instance=ExtResource( 10 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 14.8, 0.509728, 18.8413 )
+
+[node name="Picture Warhol" parent="PropMaster" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -45.168, 13.3019, -26.6659 )
 
 [node name="OmniLight" type="OmniLight" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 19.7477, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.03148, 14.7906, 0 )
 omni_range = 50.0
 
 [node name="Room" type="Spatial" parent="."]
@@ -53,16 +95,22 @@ collision_layer = 3
 shape = SubResource( 1 )
 
 [node name="Wall" parent="Room" instance=ExtResource( 1 )]
-transform = Transform( 8.17174, 0, 0, 0, 1.44618, 0, 0, 0, 8.17174, 374.266, 0, 371.664 )
+transform = Transform( 8.17173, 0, 0, 0, 1.44618, 0, 0, 0, 8.17173, 369.926, 0, 371.664 )
 
 [node name="Wall2" parent="Room" instance=ExtResource( 1 )]
-transform = Transform( -8.17174, 0, -2.66269e-06, 0, 1.44618, 0, 2.66269e-06, 0, -8.17174, -374.266, 0, 371.664 )
+transform = Transform( -8.17173, 0, -2.66269e-06, 0, 1.44618, 0, 2.66269e-06, 0, -8.17173, -373.391, -1.37918e-06, 373.639 )
 
 [node name="Wall3" parent="Room" instance=ExtResource( 1 )]
-transform = Transform( -1.33134e-06, 0, 8.17174, 0, 1.44618, 0, -8.17174, 0, -1.33134e-06, 0, 0, -2.60126 )
+transform = Transform( -1.33134e-06, 0, 8.17173, 0, 1.44618, 0, -8.17173, 0, -1.33134e-06, 0, 0, 0.68454 )
 
 [node name="Wall4" parent="Room" instance=ExtResource( 1 )]
-transform = Transform( -1.33134e-06, 0, -8.17174, 0, 1.44618, 0, 8.17174, 0, -1.33134e-06, 0, 0, 745.93 )
+transform = Transform( -1.33134e-06, 0, -8.17173, 0, 1.44618, 0, 8.17173, 0, -1.33134e-06, 0, 0, 538.568 )
 
 [node name="Door" parent="Room" instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.40921 )
+
+[node name="Door2" parent="Room" instance=ExtResource( 5 )]
+transform = Transform( -4.37114e-08, 0, -0.999999, 0, 1, 0, 0.999999, 0, -4.37114e-08, 366.572, 0, 445.792 )
+
+[node name="Door3" parent="Room" instance=ExtResource( 5 )]
+transform = Transform( -0.999999, 0, 8.74227e-08, 0, 1, 0, -8.74227e-08, 0, -0.999999, -304.67, 0, 536.225 )

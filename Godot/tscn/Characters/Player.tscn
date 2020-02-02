@@ -1,13 +1,15 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/Timer.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Models/baseball-glove.gltf" type="PackedScene" id=3]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 3.0
 height = 5.0
 
 [sub_resource type="BoxShape" id=2]
+extents = Vector3( 2.19289, 1.63907, 1.93459 )
 
 [node name="Player" type="KinematicBody"]
 collision_layer = 1024
@@ -34,9 +36,14 @@ collision_layer = 4
 collision_mask = 0
 
 [node name="CollisionShape" type="CollisionShape" parent="CameraHelper/Glove"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.698462 )
 shape = SubResource( 2 )
 
 [node name="CSGBox" type="CSGBox" parent="CameraHelper/Glove"]
+visible = false
+
+[node name="baseball-glove" parent="CameraHelper/Glove" instance=ExtResource( 3 )]
+transform = Transform( 0.598891, -0.613782, -0.514393, 0.599738, 0.769412, -0.219819, 0.530701, -0.176853, 0.828903, 0.604704, 0.0876207, -0.121889 )
 
 [node name="Debug" type="Label" parent="."]
 margin_right = 40.0
