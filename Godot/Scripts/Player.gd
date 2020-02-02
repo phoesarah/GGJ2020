@@ -1,11 +1,13 @@
 extends KinematicBody
 export (float) var GRAVITY=-24
 export (bool) var invert_mouse_y = 0
+export (float) var time_per_prop = 3
 var invert_y = 1
 const MOUSE_SENSITIVITY=0.1
 var camera_helper
 var camera
 var has_ball: bool = 1
+var can_throw: bool = 1
 
 var vel = Vector3()
 const MAX_SPEED = 25
@@ -19,6 +21,7 @@ const MAX_SLOPE_ANGLE = 40
 var ray
 var ball
 var hit_props = Array()
+var timer
 
 var debugtext
 
@@ -28,6 +31,7 @@ func _ready():
 	camera = get_node("CameraHelper/Camera")
 	camera_helper = get_node("CameraHelper")
 	ray = get_node("CameraHelper/Camera/RayCast")
+	timer = get_node("Timer")
 	ball = preload("res://tscn/Props/Ball.tscn")
 	if invert_mouse_y:
 		invert_y=-1
@@ -88,19 +92,28 @@ func process_input(delta):
 			
 	if Input.is_action_just_pressed("interact"):
 		if has_ball:
-			var ballo=ball.instance()
-			var scene_root = get_tree().root.get_children()[0]
-			scene_root.add_child(ballo)
-			var cht=camera_helper.get_global_transform()
-			ballo.transform.origin=cht.origin+(cht.basis.z*5)
-			ballo.apply_impulse(Vector3(0,0,0),cht.basis.z*100)
-			has_ball=0
-			
-		ray.force_raycast_update()
-		if ray.is_colliding():
-			var obj = ray.get_collider()
-			debugtext += " Ray cast to: " + String(obj.name) + "\n"
-			#print(obj.name)
+			if !can_throw:
+				ray.force_raycast_update()
+				if ray.is_colliding():
+					var obj = ray.get_collider()
+					print(" Ray cast to: " + String(obj.name))
+					if hit_props.has(obj):
+						hit_props.erase(obj)
+						
+						if hit_props.size()==0:
+							get_tree().quit()
+					#print(obj.name)
+					
+			if can_throw:
+				var ballo=ball.instance()
+				var scene_root = get_tree().root.get_children()[0]
+				scene_root.add_child(ballo)
+				var cht=camera_helper.get_global_transform()
+				ballo.transform.origin=cht.origin+(cht.basis.z*5)
+				ballo.apply_impulse(Vector3(0,0,0),cht.basis.z*100)
+				has_ball=0
+				can_throw=0
+
 
 func process_movement(delta):
 	dir.y = 0
@@ -125,11 +138,24 @@ func process_movement(delta):
 	vel.z = hvel.z
 	vel = move_and_slide(vel, Vector3(0, 1, 0), 0.05, 4, deg2rad(MAX_SLOPE_ANGLE))
 	debugtext += String(vel)
-	debugtext += "\n" + String(camera_helper.get_global_transform().basis.z) + "\n"
+	#debugtext += "\n" + String(camera_helper.get_global_transform().basis.z) + "\n"
 	#debugtext += "\n" + String(Vector3(camera_helper.get_transform().basis.x.x,camera_helper.get_transform().basis.y.y,camera_helper.get_transform().basis.z.z)) + "\n"
 	debugtext += "\n" + String(hit_props.size()) + "\n"
 	get_node("Debug").text= debugtext + "\n" + "FPS: " + str(Engine.get_frames_per_second())
 
+func prop_disturbed(prop):
+	print("Prop disturbed")
+	if !prop.sleepping:
+		print ("Prop not sleeping")
+		if !hit_props.has(prop):
+			hit_props.append(prop)
+
 func ball_hit(prop):
-	if !hit_props.has(prop):
-		hit_props.append(prop)
+	pass
+#	if !hit_props.has(prop):
+#		hit_props.append(prop)
+
+func caught():
+	print("Caught ball")
+	has_ball=1
+	timer.start(hit_props.size()*time_per_prop)
